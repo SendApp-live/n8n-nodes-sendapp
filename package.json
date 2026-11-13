@@ -1,0 +1,60 @@
+{
+  "name": "n8n-nodes-sendapp",
+  "version": "0.3.0",
+  "description": "SendApp for n8n: send WhatsApp messages and templates, SMS, start SendApp automations, manage contacts, custom fields and bookings, and start workflows on WhatsApp messages.",
+  "license": "MIT",
+  "homepage": "https://sendapp.live",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SendApp-live/n8n-nodes-sendapp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SendApp-live/n8n-nodes-sendapp/issues"
+  },
+  "keywords": [
+    "n8n-community-node-package",
+    "sendapp",
+    "whatsapp",
+    "whatsapp-business",
+    "sms"
+  ],
+  "author": {
+    "name": "SendApp",
+    "email": "info@sendapp.live"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease",
+    "test": "node --test test/node.test.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/SendAppApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/SendApp/SendApp.node.js",
+      "dist/nodes/SendAppTrigger/SendAppTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "0.54.4",
+    "eslint": "9.32.0",
+    "n8n-workflow": "^2.16.0",
+    "prettier": "3.6.2",
+    "release-it": "^21.1.0",
+    "typescript": "5.9.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}

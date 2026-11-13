@@ -1,0 +1,21 @@
+{
+	"node": "n8n-nodes-sendapp.sendApp",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"Communication",
+		"Marketing & Content"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://app.sendapp.ai/docs/api"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/sendapp/n8n-nodes-sendapp#readme"
+			}
+		]
+	}
+}
