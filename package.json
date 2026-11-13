@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-sendapp",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "SendApp for n8n: send WhatsApp messages and templates, SMS, start SendApp automations, manage contacts, custom fields and bookings, and start workflows on WhatsApp messages.",
   "license": "MIT",
   "homepage": "https://sendapp.live",

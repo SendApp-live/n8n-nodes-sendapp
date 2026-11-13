@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- Source code now on GitHub (https://github.com/SendApp-live/n8n-nodes-sendapp); published from GitHub Actions with npm provenance. No functional changes.
+
 ## 0.3.0
 
 - SendApp Trigger: new **Automation Runs**. The workflow starts as soon as a SendApp automation starts, finishes or fails; choose the automation from a list or leave it on every automation. The subscription is created on activation and removed on deactivation.
