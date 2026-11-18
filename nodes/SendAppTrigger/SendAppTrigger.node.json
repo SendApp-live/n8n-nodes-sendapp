@@ -9,13 +9,19 @@
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": "https://app.sendapp.ai/docs/api"
+				"url": "https://app.sendapp.ai/docs"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://github.com/sendapp/n8n-nodes-sendapp#readme"
+				"url": "https://github.com/SendApp-live/n8n-nodes-sendapp#readme"
 			}
 		]
-	}
+	},
+	"alias": [
+		"WhatsApp",
+		"WhatsApp Business",
+		"SMS",
+		"Chat"
+	]
 }

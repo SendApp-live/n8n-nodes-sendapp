@@ -27,7 +27,10 @@ export class SendAppTrigger implements INodeType {
 		group: ['trigger'],
 		version: [1],
 		subtitle: '={{($parameter["source"] === "automations" ? $parameter["runEvents"] : $parameter["events"]).join(", ")}}',
-		description: 'Starts the workflow on WhatsApp messages and statuses of a SendApp number, or when a SendApp automation runs',
+		// n8n's node picker shows ONE entry for SendApp + SendApp Trigger and always uses the trigger's description
+		// for it, so this sentence has to describe both nodes.
+		description:
+			'Send WhatsApp messages, templates and SMS, manage contacts and bookings, and start workflows on WhatsApp messages or automation runs in SendApp',
 		defaults: { name: 'SendApp Trigger' },
 		inputs: [],
 		outputs: [NodeConnectionTypes.Main],

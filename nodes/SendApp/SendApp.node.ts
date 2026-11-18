@@ -79,13 +79,15 @@ export class SendApp implements INodeType {
 						name: 'Send WhatsApp Message',
 						value: 'sendWhatsApp',
 						description: 'Send a free text WhatsApp message, with an optional file, within 24 hours of the customer’s last message',
-						action: 'Send a whats app message',
+						// Brand name kept as written: the sentence-case lint rule would print it «whats app»
+						action: `Send a WhatsApp message`,
 					},
 					{
 						name: 'Send WhatsApp Template',
 						value: 'sendTemplate',
 						description: 'Send an approved WhatsApp template, at any time',
-						action: 'Send a whats app template',
+						// Brand name kept as written: the sentence-case lint rule would print it «whats app»
+						action: `Send a WhatsApp template`,
 					},
 				],
 				default: 'sendWhatsApp',

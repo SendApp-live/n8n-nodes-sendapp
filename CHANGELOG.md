@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.2
+
+- Node picker: the actions read «Send a WhatsApp message» and «Send a WhatsApp template» (they read «whats app»).
+- Node picker: the SendApp entry describes both the actions and the trigger (n8n shows the trigger's description for the merged entry).
+- Credential test: says why SendApp refused the key (unknown key; plan without API access or account suspended; plan expired) instead of n8n's bare «Forbidden».
+- Documentation links point to the SendApp API documentation (https://app.sendapp.ai/docs) and to this repository; search aliases WhatsApp and SMS.
+
 ## 0.3.1
 
 - Source code now on GitHub (https://github.com/SendApp-live/n8n-nodes-sendapp); published from GitHub Actions with npm provenance. No functional changes.

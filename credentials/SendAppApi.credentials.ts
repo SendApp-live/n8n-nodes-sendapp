@@ -1,5 +1,7 @@
 import type {
 	IAuthenticateGeneric,
+	IAuthenticateRuleResponseCode,
+	IAuthenticateRuleResponseSuccessBody,
 	Icon,
 	ICredentialTestRequest,
 	ICredentialType,
@@ -11,9 +13,12 @@ export class SendAppApi implements ICredentialType {
 
 	displayName = 'SendApp API';
 
-	icon: Icon = { light: 'file:../nodes/SendApp/sendapp.svg', dark: 'file:../nodes/SendApp/sendapp.dark.svg' };
+	icon: Icon = {
+		light: 'file:../nodes/SendApp/sendapp.svg',
+		dark: 'file:../nodes/SendApp/sendapp.dark.svg',
+	};
 
-	documentationUrl = 'https://app.sendapp.ai/docs/api';
+	documentationUrl = 'https://app.sendapp.ai/docs';
 
 	properties: INodeProperties[] = [
 		{
@@ -43,11 +48,42 @@ export class SendAppApi implements ICredentialType {
 		},
 	};
 
+	// n8n only shows «Forbidden» for a refused key: these rules say why. They are checked in order — the response
+	// codes when the call fails, the body when it succeeds (an expired plan still answers /me, with plan.expired).
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials.baseUrl.replace(/\\/+$/, "")}}/api',
 			url: '/me',
 			method: 'GET',
 		},
+		rules: [
+			{
+				type: 'responseCode',
+				properties: {
+					value: 401,
+					message:
+						'SendApp did not recognise this API key. Copy it again from SendApp: Settings → API keys.',
+				},
+			},
+			{
+				type: 'responseCode',
+				properties: {
+					value: 403,
+					message:
+						'SendApp refused this API key: the plan of this account does not include API access, or the account is suspended.',
+				},
+			},
+			{
+				type: 'responseSuccessBody',
+				properties: {
+					key: 'plan.expired',
+					value: true,
+					message:
+						'The API key is valid, but the SendApp plan of this account has expired: renew it to send messages and save contacts from n8n.',
+				},
+			},
+		] as Array<
+			IAuthenticateRuleResponseCode | IAuthenticateRuleResponseSuccessBody
+		> as IAuthenticateRuleResponseCode[],
 	};
 }
